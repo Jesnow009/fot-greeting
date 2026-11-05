@@ -337,10 +337,8 @@ Thank you for choosing me, for holding my hand, and for being my best friend thr
       }
     } catch (e) {}
 
-    // Auto-start ambient melody on gift open
-    setTimeout(() => {
-      startBackgroundMusic();
-    }, 400);
+    // Start music immediately on the user's tap
+    startBackgroundMusic();
 
     setTimeout(() => {
       envelopeScreen.classList.add('fade-out');
