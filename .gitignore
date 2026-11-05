@@ -1,0 +1,5 @@
+server.js
+server.ps1
+node_modules/
+*.log
+.DS_Store

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>A Special Gift For Kurutt From Vava 💕</title>
+  <meta name="theme-color" content="#ffd1dc">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Canvas for floating particles (hearts, petals, sparkles) -->
+  <canvas id="heartCanvas"></canvas>
+
+  <!-- Background Music Control Floating Button -->
+  <div class="audio-control-pill" id="musicToggleBtn" title="Toggle romantic background music">
+    <span class="music-icon" id="musicIcon">🎵</span>
+    <span class="music-label" id="musicLabel">Play Music</span>
+    <div class="music-wave" id="musicWave">
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- Quick Floating Customizer / Share Button -->
+  <button class="settings-float-btn" id="openCustomizerBtn" title="Personalize details & get shareable link">
+    ⚙️ Customize
+  </button>
+
+  <!-- ================= SCREEN 1: THE GIFT BOX UNWRAPPING ================= -->
+  <section class="envelope-screen" id="envelopeScreen">
+    <div class="envelope-intro">
+      <div class="sparkle-badge">🎁 Special Love Gift 🎁</div>
+      <h1 class="envelope-title">For My Kurutt</h1>
+      <p class="envelope-subtitle">A special love gift handcrafted with all my heart by Vava...</p>
+      <div class="gift-tag-pill">
+        <span>🏷️ To: <strong>Kurutt 💕</strong></span>
+        <span class="tag-divider">•</span>
+        <span>From: <strong>Vava ❤️</strong></span>
+      </div>
+    </div>
+
+    <div class="gift-box-wrapper" id="envelopeWrapper">
+      <div class="gift-box" id="giftBox">
+        <!-- 3D Gift Box Lid -->
+        <div class="gift-lid" id="giftLid">
+          <div class="gift-bow">
+            <div class="bow-knot">💖</div>
+            <div class="bow-loop bow-left"></div>
+            <div class="bow-loop bow-right"></div>
+          </div>
+          <div class="ribbon-vertical lid-ribbon"></div>
+          <div class="ribbon-horizontal lid-ribbon-h"></div>
+        </div>
+
+        <!-- 3D Gift Box Body -->
+        <div class="gift-body">
+          <div class="ribbon-vertical body-ribbon"></div>
+          <div class="ribbon-horizontal body-ribbon-h"></div>
+          <div class="gift-heart-badge">
+            <span class="emblem-names">Kurutt & Vava</span>
+            <span class="emblem-date">Since Nov 5, 2022</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tap-hint" id="tapHint">
+      <span class="tap-finger">🎁</span>
+      <span>Tap to unwrap your gift, Kurutt!</span>
+    </div>
+  </section>
+
+  <!-- ================= SCREEN 2: MAIN ROMANTIC EXPERIENCE ================= -->
+  <main class="main-content hidden" id="mainContent">
+    
+    <!-- Hero / Greeting Header -->
+    <header class="hero-section">
+      <div class="badge-pill">Crafted with endless love for Kurutt from Vava ❤️</div>
+      <h1 class="hero-title">Hey <span id="displayHerName">Kurutt</span> <span class="bounce-emoji">✨</span></h1>
+      <p class="hero-subtitle" id="displayHeroSub">Every single second with you since November 5th, 2022 is my favorite memory.</p>
+    </header>
+
+    <!-- Section 1: Live Together Love Counter -->
+    <section class="romantic-card counter-card">
+      <div class="card-header">
+        <span class="header-icon">⏳</span>
+        <h2>Kurutt & Vava's Love Journey</h2>
+      </div>
+      <p class="counter-intro">Counting every beautiful moment since November 5, 2022:</p>
+      
+      <div class="counter-grid">
+        <div class="counter-box">
+          <span class="counter-number" id="countDays">0</span>
+          <span class="counter-label">Days</span>
+        </div>
+        <div class="counter-box">
+          <span class="counter-number" id="countHours">0</span>
+          <span class="counter-label">Hours</span>
+        </div>
+        <div class="counter-box">
+          <span class="counter-number" id="countMinutes">0</span>
+          <span class="counter-label">Minutes</span>
+        </div>
+        <div class="counter-box">
+          <span class="counter-number" id="countSeconds">0</span>
+          <span class="counter-label">Seconds</span>
+        </div>
+      </div>
+      <div class="counter-footer">
+        <span class="beating-heart">💖</span>
+        <span id="counterSubtext">Loving you more and more with every heartbeat, Kurutt!</span>
+      </div>
+    </section>
+
+    <!-- Section 2: Handwritten Love Letter -->
+    <section class="romantic-card letter-card">
+      <div class="letter-paper">
+        <div class="letter-pin">📌</div>
+        <div class="letter-salutation">My Dearest <span id="letterHerName">Kurutt</span>,</div>
+        <div class="letter-body" id="letterBodyText">
+          Happy Anniversary, my love! When our story began on November 5th, 2022, I never could have imagined just how much joy, peace, and warmth you would bring into my world.
+
+You are the sweetest part of my days, the smile I always look forward to, and my comfort when life gets overwhelming. Your laugh is my favorite melody, and your kindness is the most beautiful thing I've ever known.
+
+Thank you for choosing me, for holding my hand, and for being my best friend through every moment. Here's to us, our love, and a lifetime of forever together.
+        </div>
+        <div class="letter-closing">
+          Forever & Always Yours,<br>
+          <span class="letter-signature" id="letterHisName">Vava ❤️</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2.5: Why I Love You, Kurutt -->
+    <section class="romantic-card why-love-card">
+      <div class="card-header">
+        <span class="header-icon">💖</span>
+        <h2>Why I Love You, Kurutt</h2>
+      </div>
+      <div class="why-love-container">
+        <span class="quote-mark-icon">“</span>
+        <p class="why-love-paragraph" id="whyLoveParagraphText">
+          Every little thing about you makes my world so much brighter. The way your eyes light up when you smile, your gentle heart that always cares for me, and the comforting peace I feel whenever you are near. You are not just my love, Kurutt; you are my home, my favorite thought every morning, and the greatest blessing of my life.
+        </p>
+        <div class="why-love-footer">
+          <span class="beating-heart">💝</span>
+          <span>Forever falling for you, every single day — Vava</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: "Reasons Why I Love You" Flip Cards -->
+    <section class="romantic-card reasons-card">
+      <div class="card-header">
+        <span class="header-icon">🌸</span>
+        <h2>Reasons Why I Love You</h2>
+      </div>
+      <p class="reasons-hint">Tap each cute card to reveal what makes you so irreplaceable:</p>
+
+      <div class="reasons-grid" id="reasonsGrid">
+        <!-- Reason cards generated dynamically via JS -->
+      </div>
+
+      <div class="reasons-progress" id="reasonsProgress">
+        Tap to reveal all reasons! 💫
+      </div>
+    </section>
+
+    <!-- Section 4: Sweet Love Coupons -->
+    <section class="romantic-card coupons-card">
+      <div class="card-header">
+        <span class="header-icon">🎟️</span>
+        <h2>Exclusive Love Coupons</h2>
+      </div>
+      <p class="coupons-hint">No expiration date. Redeemable anytime with me! 😉</p>
+
+      <div class="coupons-list" id="couponsList">
+        <!-- Love coupons rendered via JS -->
+      </div>
+    </section>
+
+    <!-- Section 5: Love Heart Shower Clicker -->
+    <section class="romantic-card clicker-card">
+      <div class="card-header">
+        <span class="header-icon">💓</span>
+        <h2>Send Me Infinite Love</h2>
+      </div>
+      <p class="clicker-hint">Tap the heart as many times as you love me!</p>
+      
+      <button class="huge-heart-btn" id="hugeHeartBtn" aria-label="Tap to send heart">
+        <span class="huge-heart-emoji">💖</span>
+        <span class="tap-ripple-effect"></span>
+      </button>
+
+      <div class="clicker-score-wrap">
+        <span class="clicker-score-num" id="loveCounter">0</span>
+        <span class="clicker-score-sub">Hearts sent to my heart!</span>
+      </div>
+      <div class="clicker-encouragement" id="clickerEncouragement">Tap to start sending love! 🥰</div>
+    </section>
+
+    <!-- Section 6: Playful Proposal / "Will You Be My Forever?" -->
+    <section class="romantic-card question-card" id="questionCard">
+      <div class="card-header">
+        <span class="header-icon">💍</span>
+        <h2 id="questionTitle">One Important Question For Kurutt...</h2>
+      </div>
+      <p class="question-text" id="questionSubtitle">Kurutt, will you be Vava's forever girl and let him love you for all eternity?</p>
+
+      <div class="proposal-buttons-area" id="proposalButtonsArea">
+        <button class="btn-yes" id="btnYes">YES, FOREVER! 💖</button>
+        <button class="btn-no" id="btnNo">No 😜</button>
+      </div>
+
+      <div class="no-tease-message" id="noTeaseMessage"></div>
+    </section>
+
+    <!-- Celebration Modal (When Yes is clicked) -->
+    <div class="celebration-overlay hidden" id="celebrationOverlay">
+      <div class="celebration-modal">
+        <div class="celebration-confetti-art">🎉💖👰‍♀️✨</div>
+        <h2>YAAAY! BEST DECISION EVER, KURUTT! 🥰</h2>
+        <p class="celebration-text">
+          You just made Vava the happiest guy in the entire universe! Happy Anniversary, my love! I promise to always cherish you, hold your hand, make you laugh, and love you more and more every single day!
+        </p>
+        <div class="celebration-stamp">OFFICIALLY VAVA'S FOREVER 💍❤️</div>
+        <button class="btn-close-celeb" id="btnCloseCeleb">Hold Vava's Hand Forever 💕</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="romantic-footer">
+      <p>Crafted with endless love just for you 🌸</p>
+      <p class="footer-small">You will always be my happiest place.</p>
+    </footer>
+
+  </main>
+
+  <!-- ================= PERSONALIZATION MODAL ================= -->
+  <div class="customizer-modal hidden" id="customizerModal">
+    <div class="customizer-sheet">
+      <div class="customizer-header">
+        <div class="customizer-title-wrap">
+          <span class="sheet-icon">💌</span>
+          <h3>Personalize This Website</h3>
+        </div>
+        <button class="btn-close-modal" id="btnCloseCustomizer">&times;</button>
+      </div>
+
+      <div class="customizer-body">
+        <p class="customizer-tip">
+          Customize your girlfriend's name, your anniversary date, your message, and generate a <strong>magic shareable link</strong> to send to her phone!
+        </p>
+
+        <div class="form-group">
+          <label>Her Name / Nickname</label>
+          <input type="text" id="inputHerName" placeholder="e.g. My Princess, Sarah, Babe">
+        </div>
+
+        <div class="form-group">
+          <label>Your Name / Nickname</label>
+          <input type="text" id="inputHisName" placeholder="e.g. Your Goofball, Alex">
+        </div>
+
+        <div class="form-group">
+          <label>The Special Date (Anniversary / First Met)</label>
+          <input type="datetime-local" id="inputDate">
+          <small class="form-help">Calculates the exact days, hours, and minutes you've been together.</small>
+        </div>
+
+        <div class="form-group">
+          <label>Your Love Letter Message</label>
+          <textarea id="inputLetter" rows="4" placeholder="Write your heartfelt words here..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Why I Love Her (Special Paragraph)</label>
+          <textarea id="inputWhyLove" rows="4" placeholder="Write or paste your heartfelt paragraph about why you love Kurutt here..."></textarea>
+          <small class="form-help">This will be highlighted in the romantic 'Why I Love You' card.</small>
+        </div>
+
+        <div class="customizer-actions">
+          <button class="btn-primary" id="btnSaveConfig">💾 Save & Preview On This Device</button>
+          <button class="btn-share" id="btnShareLink">🔗 Copy Magic Link For Her Phone</button>
+          <button class="btn-reset" id="btnResetDefaults">🔄 Reset to Romantic Defaults</button>
+        </div>
+
+        <div class="share-feedback hidden" id="shareFeedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
