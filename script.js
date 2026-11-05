@@ -181,54 +181,30 @@ Thank you for choosing me, for holding my hand, and for being my best friend thr
     });
   }
 
-  // Dreamy background ambient music box melody
+  // Background MP3 Music Player
+  const bgMusicAudio = document.getElementById('bgMusic');
+
   function startBackgroundMusic() {
-    if (!audioCtx) return;
-    isMusicPlaying = true;
-    updateMusicUI();
-
-    const chords = [
-      [261.63, 329.63, 392.00, 523.25], // C major
-      [220.00, 261.63, 329.63, 440.00], // A minor
-      [174.61, 220.00, 261.63, 349.23], // F major
-      [196.00, 246.94, 293.66, 392.00]  // G major
-    ];
-
-    let chordIdx = 0;
-    function playStep() {
-      if (!isMusicPlaying) return;
-      const currentChord = chords[chordIdx % chords.length];
-      chordIdx++;
-
-      currentChord.forEach((freq, i) => {
-        setTimeout(() => {
-          if (!isMusicPlaying || !audioCtx) return;
-          try {
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-            gain.gain.setValueAtTime(0.035, audioCtx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.2);
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            osc.start();
-            osc.stop(audioCtx.currentTime + 1.2);
-          } catch (e) {}
-        }, i * 260);
+    if (!bgMusicAudio) return;
+    bgMusicAudio.volume = 0.7;
+    const playPromise = bgMusicAudio.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        isMusicPlaying = true;
+        updateMusicUI();
+      }).catch((err) => {
+        console.log("Audio waiting for user gesture or mp3 file:", err);
+        isMusicPlaying = false;
+        updateMusicUI();
       });
     }
-
-    playStep();
-    musicInterval = setInterval(playStep, 2200);
   }
 
   function stopBackgroundMusic() {
-    isMusicPlaying = false;
-    if (musicInterval) {
-      clearInterval(musicInterval);
-      musicInterval = null;
+    if (bgMusicAudio) {
+      bgMusicAudio.pause();
     }
+    isMusicPlaying = false;
     updateMusicUI();
   }
 
